@@ -33,6 +33,10 @@ while not game_over:
     if food_collected:
         score.increase_score()
     if out_of_bounds or tail_collusion:
+        high_score = score.get_high_score()
+
+        if (score.score > int(high_score)):
+            score.update_high_score(score.score)
         game_over = True
 
     screen.listen()
